@@ -1,0 +1,21 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>A Weather application that may help your daily needs.</p>
+    <div>
+        <p>Search by coordinates</p>
+        <p>Or...</p>
+        <p>Search by municipality</p>
+    </div>
+    <div class="weather-display-container">
+        <div class="weather-info">
+            <p id="temperature"></p>
+            <p id="description"></p>
+        </div>
+    </div>
+</div>

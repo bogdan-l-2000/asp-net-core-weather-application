@@ -1,0 +1,97 @@
+@page
+@model CoordinatesModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Coordinate Search</h1>
+    <form method=post asp-page="Coordinates" id="weather-request-form-coordinate" name="WeatherRequestFormCoordinate" onsubmit="return validateWeatherRequestFormCoordinate()">
+        <div class="location-search-form-group">
+            <div class="location-search-form-lat-long">
+                <div class="location-search-form-find-lat">
+                    <label asp-for="Latitude">Enter your closest latitude: </label>
+                    <input type="text" name="Latitude" inputmode="decimal">
+                </div>
+                <div class="location-search-form-find-long">
+                    <label asp-for="Longitude">Enter your closest longitude: </label>
+                    <input type="text" name="Longitude" inputmode="decimal">
+                </div>
+                <div class="location-search-form-num-days">
+                    <label asp-for="NumDays">Enter the number of days to forecast: </label>
+                    <select name="NumDays" id="num-days-forecast">
+                        <option value="1">1 day</option>
+                        <option value="3">3 days</option>
+                        <option value="7">7 days (1 week)</option>
+                        <option value="14">14 days (2 weeks)</option>
+                        <option value="16">16 days</option>
+                    </select>
+                </div>
+                <div class="location-search-temperature-unit">
+                    <label asp-for="TemperatureUnit">Enter the unit of the temperature to display: </label>
+                    <select name="TemperatureUnit" id="temperature-unit">
+                        <option value="celsius">Celsius (°C)</option>
+                        <option value="fahrenheit">Fahrenheit (°F)</option>
+                    </select>
+                </div>
+                <div class="location-search-precipitation-unit">
+                    <label asp-for="PrecipitationUnit">Enter the unit of the precipitation to display: </label>
+                    <select name="PrecipitationUnit" id="precipitation-unit">
+                        <option value="mm">Millimeter</option>
+                        <option value="inch">Inch</option>
+                    </select>
+                </div>
+                <div class="location-search-wind-speed-unit">
+                    <label asp-for="WindSpeedUnit">Enter the unit of the wind speed to display: </label>
+                    <select name="WindSpeedUnit" id="wind-speed-unit">
+                        <option value="kmh">Kilometres / hour</option>
+                        <option value="ms">Metres / second (m/s)</option>
+                        <option value="mph">Miles / hour (mph)</option>
+                        <option value="kn">Nautical Miles / hour (knots)</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <button type="submit">Submit Coordinates!</button>
+    </form>
+    <div class="weather-display-container">
+        <div class="weather-info">
+            <p id="temperature"></p>
+            <p id="description"></p>
+        </div>
+        @if (@Model.ResponseData != null)
+        {
+            <div class="current-weather">
+                <h4>Current Weather:</h4>
+                <div>Current Weather for coordinates (@Model.ResponseData.latitude, @Model.ResponseData.longitude) on @Model.parsedCurrentDateTime</div>
+                <span>Temperature: @Model.ResponseData.hourly.temperature_2m[@Model.currentTimeIndex] @Model.ResponseData.hourly_units.temperature_2m</span>
+                <span>Wind speed: @Model.ResponseData.hourly.wind_speed_10m[@Model.currentTimeIndex] @Model.ResponseData.hourly_units.wind_speed_10m</span>
+                <span>Elevation: @Model.ResponseData.elevation m</span>
+            </div>
+            <div class="hourly-weather">
+                <h4>Hourly Weather:</h4>
+                <table class="temperature_display">
+                    <thead>
+                        <tr>
+                            <th scope="col">Time</th>
+                            <th scope="col">Hourly Temperature (@Model.ResponseData.hourly_units.temperature_2m)</th>
+                            <th scope="col">Precipitation (@Model.ResponseData.hourly_units.precipitation)</th>
+                            <th scope="col">Wind Speed (@Model.ResponseData.hourly_units.wind_speed_10m)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (var i=0; i < @Model.ResponseData.hourly.time.Count; i++)
+                        {
+                            <tr>
+                                <td>@Model.parsedDateTimeStrings[i]</td>
+                                <td>@Model.ResponseData.hourly.temperature_2m[i]</td>
+                                <td>@Model.ResponseData.hourly.precipitation[i]</td>
+                                <td>@Model.ResponseData.hourly.wind_speed_10m[i]</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        }
+    </div>
+</div>

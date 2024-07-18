@@ -1,2 +1,2 @@
-# asp-net-core-weather-application
-A weather application for learning ASP.NET Core
+# weather-application-asp-net-core
+Learning ASP.NET Core by creating a weather application.

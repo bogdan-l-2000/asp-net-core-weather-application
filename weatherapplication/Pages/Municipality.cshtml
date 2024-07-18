@@ -1,0 +1,21 @@
+@page
+@model MunicipalityModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Municipality Search</h1>
+    <form method=post asp-page="Municipality" id="weather-request-form-city" name="WeatherRequestFormCity" onsubmit="return validateWeatherRequestFormCity()">
+        <label asp-for="Location">Enter a location to search:</label>
+        <select name="Location">
+        </select>
+        <button type="submit">Submit City!</button>
+    </form>
+    <div class="weather-display-container">
+        <div class="weather-info">
+            <p id="temperature"></p>
+            <p id="description"></p>
+        </div>
+    </div>
+</div>
