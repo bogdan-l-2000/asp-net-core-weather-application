@@ -61,7 +61,7 @@
         </div>
         @if (@Model.ResponseData != null)
         {
-            <div class="current-weather">
+            <div class="current-weather" id="current-weather-coordinate-search">
                 <h4>Current Weather:</h4>
                 <div>Current Weather for coordinates (@Model.ResponseData.latitude, @Model.ResponseData.longitude) on @Model.parsedCurrentDateTime</div>
                 <span>Temperature: @Model.ResponseData.hourly.temperature_2m[@Model.currentTimeIndex] @Model.ResponseData.hourly_units.temperature_2m</span>
@@ -69,9 +69,9 @@
                 <span>Cloud cover: @Model.ResponseData.hourly.cloud_cover[@Model.currentTimeIndex] @Model.ResponseData.hourly_units.cloud_cover</span>
                 <span>Elevation: @Model.ResponseData.elevation m</span>
             </div>
-            <div class="hourly-weather">
+            <div class="hourly-weather" id="hourly-weather-coordinate-search">
                 <h4>Hourly Weather:</h4>
-                <table class="temperature_display">
+                <table class="hourly-temperature-display" id="hourly-temperature-display-coordinate-search">
                     <thead>
                         <tr>
                             <th scope="col">Time</th>

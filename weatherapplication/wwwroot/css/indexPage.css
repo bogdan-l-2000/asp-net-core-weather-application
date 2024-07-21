@@ -2,9 +2,43 @@
 #weather-request-form-coordinate {
     border: 1px solid grey;
     margin: 20px;
+    padding: 5px;
 }
 
 #weather-request-form-city {
     border: 1px solid grey; 
-    margin: 20px;
+    margin: 25px 0;
 }
+
+.hourly-temperature-display {
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    align-self: center;
+}
+
+
+.hourly-temperature-display thead tr {
+    background-color: #D2CFE2;
+    color: #ffffff;
+    text-align: left;
+}
+
+.hourly-temperature-display th,
+.hourly-temperature-display td {
+    padding: 12px 15px;
+}
+
+.hourly-temperature-display tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.hourly-temperature-display tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.hourly-temperature-display tbody tr:last-of-type {
+    border-bottom: 2px solid #D2CFE2;
+}
+
+
+/* Inspiration taken from here: https://dev.to/dcodeyt/creating-beautiful-html-tables-with-css-428l */
