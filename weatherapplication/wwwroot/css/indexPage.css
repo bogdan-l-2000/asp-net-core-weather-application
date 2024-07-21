@@ -1,6 +1,7 @@
 
 #weather-request-form-coordinate {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    border-bottom: 2px solid #D2CFE2;
     margin: 20px;
     padding: 5px;
 }
@@ -10,10 +11,16 @@
     margin: 25px 0;
 }
 
+input, select {
+    border: 1px solid #D2CFE2;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+
 .current-weather-display {
-    background-color: #D2CFE2;
     min-width: 400px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    border-bottom: 2px solid #D2CFE2;
     padding: 12px 15px;
 }
 

@@ -5,7 +5,7 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Coordinate Search</h1>
+    <h1 class="display-4">Search Weather by Coordinates</h1>
     <form method=post asp-page="Coordinates" id="weather-request-form-coordinate" name="WeatherRequestFormCoordinate" onsubmit="return validateWeatherRequestFormCoordinate()">
         <div class="location-search-form-group">
             <div class="location-search-form-lat-long">
@@ -64,7 +64,7 @@
             <div class="current-weather" id="current-weather-coordinate-search">
                 <h4>Current Weather for coordinates (@Model.ResponseData.latitude, @Model.ResponseData.longitude) on @Model.parsedCurrentDateTime</h4>
                 <div class="current-weather-display" id="current-weather-display-coordinate-search">
-                    <span class="current-temperature">Temperature: @Model.ResponseData.hourly.temperature_2m[@Model.currentTimeIndex] @Model.ResponseData.hourly_units.temperature_2m</span>
+                    <span class="current-temperature">@Model.ResponseData.hourly.temperature_2m[@Model.currentTimeIndex] @Model.ResponseData.hourly_units.temperature_2m</span>
                     <span>Wind speed: @Model.ResponseData.hourly.wind_speed_10m[@Model.currentTimeIndex] @Model.ResponseData.hourly_units.wind_speed_10m</span>
                     <span>Cloud cover: @Model.ResponseData.hourly.cloud_cover[@Model.currentTimeIndex] @Model.ResponseData.hourly_units.cloud_cover</span>
                     <span>Elevation: @Model.ResponseData.elevation m</span>
