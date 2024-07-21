@@ -66,6 +66,7 @@
                 <div>Current Weather for coordinates (@Model.ResponseData.latitude, @Model.ResponseData.longitude) on @Model.parsedCurrentDateTime</div>
                 <span>Temperature: @Model.ResponseData.hourly.temperature_2m[@Model.currentTimeIndex] @Model.ResponseData.hourly_units.temperature_2m</span>
                 <span>Wind speed: @Model.ResponseData.hourly.wind_speed_10m[@Model.currentTimeIndex] @Model.ResponseData.hourly_units.wind_speed_10m</span>
+                <span>Cloud cover: @Model.ResponseData.hourly.cloud_cover[@Model.currentTimeIndex] @Model.ResponseData.hourly_units.cloud_cover</span>
                 <span>Elevation: @Model.ResponseData.elevation m</span>
             </div>
             <div class="hourly-weather">
@@ -77,6 +78,7 @@
                             <th scope="col">Hourly Temperature (@Model.ResponseData.hourly_units.temperature_2m)</th>
                             <th scope="col">Precipitation (@Model.ResponseData.hourly_units.precipitation)</th>
                             <th scope="col">Wind Speed (@Model.ResponseData.hourly_units.wind_speed_10m)</th>
+                            <th scope="col">Cloud Cover (@Model.ResponseData.hourly_units.cloud_cover)</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -87,6 +89,7 @@
                                 <td>@Model.ResponseData.hourly.temperature_2m[i]</td>
                                 <td>@Model.ResponseData.hourly.precipitation[i]</td>
                                 <td>@Model.ResponseData.hourly.wind_speed_10m[i]</td>
+                                <td>@Model.ResponseData.hourly.cloud_cover[i]</td>
                             </tr>
                         }
                     </tbody>

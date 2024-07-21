@@ -117,7 +117,7 @@ namespace weatherapplication.Pages
         public async Task<string> GetWeatherForecast() {
             string apiResponse = "";
             // Console.WriteLine($"https://api.open-meteo.com/v1/forecast?latitude={Latitude}&longitude={Longitude}&hourly=temperature_2m");
-            string apiRequest = $"https://api.open-meteo.com/v1/forecast?latitude={Latitude}&longitude={Longitude}&hourly=temperature_2m,precipitation,wind_speed_10m&timezone=auto&forecast_days={NumDays}&temperature_unit={TemperatureUnit}&precipitation_unit={PrecipitationUnit}&wind_speed_unit={WindSpeedUnit}";
+            string apiRequest = $"https://api.open-meteo.com/v1/forecast?latitude={Latitude}&longitude={Longitude}&hourly=temperature_2m,precipitation,wind_speed_10m,cloud_cover&timezone=auto&forecast_days={NumDays}&temperature_unit={TemperatureUnit}&precipitation_unit={PrecipitationUnit}&wind_speed_unit={WindSpeedUnit}";
             using ( var httpClient = new HttpClient()) {
                 using (HttpResponseMessage response = await httpClient.GetAsync(apiRequest)) {
                     apiResponse = await response.Content.ReadAsStringAsync();
@@ -169,6 +169,9 @@ namespace weatherapplication.Pages
 
         [JsonPropertyName("wind_speed_10m")]
         public string wind_speed_10m { get; set; }
+
+        [JsonPropertyName("cloud_cover")]
+        public string cloud_cover { get; set; }
     }
 
     public class CoordinateResponseHourlyData
@@ -185,6 +188,8 @@ namespace weatherapplication.Pages
         [JsonPropertyName("wind_speed_10m")]
         public List<float> wind_speed_10m { get; set; }
 
+        [JsonPropertyName("cloud_cover")]
+        public List<int> cloud_cover { get; set; }
     }
 }
 
