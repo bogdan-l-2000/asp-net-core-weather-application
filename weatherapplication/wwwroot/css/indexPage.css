@@ -1,6 +1,6 @@
 
 #weather-request-form-coordinate {
-    border: 1px solid grey;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
     margin: 20px;
     padding: 5px;
 }
@@ -10,33 +10,46 @@
     margin: 25px 0;
 }
 
-.hourly-temperature-display {
+.current-weather-display {
+    background-color: #D2CFE2;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    padding: 12px 15px;
+}
+
+.current-temperature {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.hourly-weather-display {
     min-width: 400px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
     align-self: center;
 }
 
 
-.hourly-temperature-display thead tr {
+.hourly-weather-display thead tr {
     background-color: #D2CFE2;
-    color: #ffffff;
+    /*color: #ffffff;*/
     text-align: left;
 }
 
-.hourly-temperature-display th,
-.hourly-temperature-display td {
+.hourly-weather-display th,
+.hourly-weather-display td {
     padding: 12px 15px;
 }
 
-.hourly-temperature-display tbody tr {
+.hourly-weather-display tbody tr {
     border-bottom: 1px solid #dddddd;
 }
 
-.hourly-temperature-display tbody tr:nth-of-type(even) {
+.hourly-weather-display tbody tr:nth-of-type(even) {
     background-color: #f3f3f3;
 }
 
-.hourly-temperature-display tbody tr:last-of-type {
+.hourly-weather-display tbody tr:last-of-type {
     border-bottom: 2px solid #D2CFE2;
 }
 

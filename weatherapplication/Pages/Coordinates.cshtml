@@ -62,16 +62,17 @@
         @if (@Model.ResponseData != null)
         {
             <div class="current-weather" id="current-weather-coordinate-search">
-                <h4>Current Weather:</h4>
-                <div>Current Weather for coordinates (@Model.ResponseData.latitude, @Model.ResponseData.longitude) on @Model.parsedCurrentDateTime</div>
-                <span>Temperature: @Model.ResponseData.hourly.temperature_2m[@Model.currentTimeIndex] @Model.ResponseData.hourly_units.temperature_2m</span>
-                <span>Wind speed: @Model.ResponseData.hourly.wind_speed_10m[@Model.currentTimeIndex] @Model.ResponseData.hourly_units.wind_speed_10m</span>
-                <span>Cloud cover: @Model.ResponseData.hourly.cloud_cover[@Model.currentTimeIndex] @Model.ResponseData.hourly_units.cloud_cover</span>
-                <span>Elevation: @Model.ResponseData.elevation m</span>
+                <h4>Current Weather for coordinates (@Model.ResponseData.latitude, @Model.ResponseData.longitude) on @Model.parsedCurrentDateTime</h4>
+                <div class="current-weather-display" id="current-weather-display-coordinate-search">
+                    <span class="current-temperature">Temperature: @Model.ResponseData.hourly.temperature_2m[@Model.currentTimeIndex] @Model.ResponseData.hourly_units.temperature_2m</span>
+                    <span>Wind speed: @Model.ResponseData.hourly.wind_speed_10m[@Model.currentTimeIndex] @Model.ResponseData.hourly_units.wind_speed_10m</span>
+                    <span>Cloud cover: @Model.ResponseData.hourly.cloud_cover[@Model.currentTimeIndex] @Model.ResponseData.hourly_units.cloud_cover</span>
+                    <span>Elevation: @Model.ResponseData.elevation m</span>
+                </div>
             </div>
             <div class="hourly-weather" id="hourly-weather-coordinate-search">
-                <h4>Hourly Weather:</h4>
-                <table class="hourly-temperature-display" id="hourly-temperature-display-coordinate-search">
+                <h4>Hourly Weather for coordinates (@Model.ResponseData.latitude, @Model.ResponseData.longitude) on @Model.parsedCurrentDateTime</h4>
+                <table class="hourly-weather-display" id="hourly-weather-display-coordinate-search">
                     <thead>
                         <tr>
                             <th scope="col">Time</th>
