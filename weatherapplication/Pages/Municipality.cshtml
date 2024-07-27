@@ -7,15 +7,44 @@
 <div class="text-center">
     <h1 class="display-4">Search Weather by Municipality</h1>
     <form method=post asp-page="Municipality" id="weather-request-form-city" name="WeatherRequestFormCity" onsubmit="return validateWeatherRequestFormCity()">
-        <label asp-for="Location">Enter a location to search:</label>
-        <select name="Location">
-        </select>
-        <button type="submit">Submit City!</button>
+        <div class="location-search-form-find-city">
+            <label asp-for="City">Enter a municipality to search:</label>
+            <input type="text" name="City" inputmode="text">
+        </div>
+        <div class="location-search-form-find-country">
+            <label asp-for="Country">Enter the country of the municipality:</label>
+            <input type="text" name="Country" inputmode="text">
+        </div>
+        <div class="location-search-temperature-unit">
+            <label asp-for="TemperatureUnit">Enter the unit of the temperature to display: </label>
+            <select name="TemperatureUnit" id="temperature-unit">
+                <option value="kelvin">Kelvin (K)</option>
+                <option value="celsius">Celsius (°C)</option>
+                <option value="fahrenheit">Fahrenheit (°F)</option>
+            </select>
+        </div>
+        <button type="submit">Submit!</button>
     </form>
     <div class="weather-display-container">
         <div class="weather-info">
             <p id="temperature"></p>
             <p id="description"></p>
         </div>
+        @if (@Model.CurrentWeatherResponseData != null)
+        {
+            <div class="current-weather" id="current-weather-municipality-search">
+                <h4>Current Weather for @Model.CurrentWeatherResponseData.name  (@Model.CurrentWeatherResponseData.coord.lat, @Model.CurrentWeatherResponseData.coord.lon) on datetime</h4>
+                <div class="current-weather-display" id="current-weather-display-municipality-search">
+                    <div class="current-weather-description" id="current-weather-description-municipality-search">
+                        <span class="current-weather-overall">@Model.CurrentWeatherResponseData.weather[0].main</span>
+                        <span class="current-weather-overall-detailed-description">@Model.CurrentWeatherResponseData.weather[0].description</span>
+                    </div>
+                    <span class="current-temperature"></span>
+                    <span>Wind speed:</span>
+                    <span>Cloud cover:</span>
+                    <span>Elevation:</span>
+                </div>
+            </div>
+        }
     </div>
 </div>

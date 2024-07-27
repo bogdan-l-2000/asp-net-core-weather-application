@@ -14,6 +14,8 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using Microsoft.JSInterop;
 
+// Uses OpenMeteo API: https://open-meteo.com/en/docs
+
 namespace weatherapplication.Pages
 {
     public class CoordinatesModel : PageModel

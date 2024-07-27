@@ -435,3 +435,7 @@ $RECYCLE.BIN/
 
 # API Keys
 WeatherApiKeyMiddleware.cs
+appSecrets.json
+
+# City json list
+city.list.json
