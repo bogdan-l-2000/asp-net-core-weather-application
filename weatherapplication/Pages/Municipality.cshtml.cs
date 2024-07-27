@@ -21,7 +21,11 @@ namespace weatherapplication.Pages
 
         public float CurrentTemperature { get; set; }
 
+        [BindProperty]
         public string TemperatureUnit { get; set; }
+
+
+        public string UnitType { get; set; }
 
 
         public float CurrentWindSpeed { get; set; }
@@ -58,6 +62,23 @@ namespace weatherapplication.Pages
             Console.WriteLine(City);
             Console.WriteLine(Country);
 
+            switch (Request.Form["TemperatureUnit"])
+            {
+                case "kelvin":
+                    UnitType = "standard";
+                    TemperatureUnit = "K";
+                    break;
+                case "celsius":
+                    UnitType = "metric";
+                    TemperatureUnit = "°C";
+                    break;
+                case "fahrenheit":
+                    UnitType = "imperial";
+                    TemperatureUnit = "°F";
+                    break;
+            }
+            Console.WriteLine(UnitType);
+
             var response = await GetWeatherInfo();
             CurrentWeatherResponseData = JsonSerializer.Deserialize<MunicipalityCurrentDataResponse>(response);
 
@@ -67,7 +88,7 @@ namespace weatherapplication.Pages
 
         public async Task<string> GetWeatherInfo() {
             string apiResponse = "";
-            string apiRequest = $"https://api.openweathermap.org/data/2.5/weather?q={City},{Country}&appid={WeatherAPIKey}";
+            string apiRequest = $"https://api.openweathermap.org/data/2.5/weather?q={City},{Country}&units={UnitType}&appid={WeatherAPIKey}";
             using ( var httpClient = new HttpClient()) {
                 using (HttpResponseMessage response = await httpClient.GetAsync(apiRequest)) {
                     apiResponse = await response.Content.ReadAsStringAsync();

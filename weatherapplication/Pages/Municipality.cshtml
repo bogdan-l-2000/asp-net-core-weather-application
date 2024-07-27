@@ -39,7 +39,7 @@
                         <span class="current-weather-overall">@Model.CurrentWeatherResponseData.weather[0].main</span>
                         <span class="current-weather-overall-detailed-description">@Model.CurrentWeatherResponseData.weather[0].description</span>
                     </div>
-                    <span class="current-temperature"></span>
+                    <span class="current-temperature">@Model.CurrentWeatherResponseData.main.temp @Model.TemperatureUnit</span>
                     <span>Wind speed:</span>
                     <span>Cloud cover:</span>
                     <span>Elevation:</span>
