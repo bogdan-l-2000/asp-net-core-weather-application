@@ -12,15 +12,15 @@ namespace weatherapplication.Pages
 {
     public class IndexModel : PageModel
     {
-        // public string Location  { get; set; }
-        // public string Latitude { get; set; }
-        // public string Longitude { get; set; }
+        public List<string> displayLocations { get; set; }
 
         private readonly ILogger<IndexModel> _logger;
 
         public IndexModel(ILogger<IndexModel> logger)
         {
             _logger = logger;
+
+            displayLocations = new List<string>{ "Toronto", "Tokyo", "Melbourne", "Cairo", "Amsterdam", "Montevideo", "McMurdo Station" };
         }
 
         public void OnGet()
