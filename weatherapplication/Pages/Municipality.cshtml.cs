@@ -24,6 +24,9 @@ namespace weatherapplication.Pages
         [BindProperty]
         public string TemperatureUnit { get; set; }
 
+        [BindProperty]
+        public string WindSpeedUnit { get; set; }
+
 
         public string UnitType { get; set; }
 
@@ -64,17 +67,20 @@ namespace weatherapplication.Pages
 
             switch (Request.Form["TemperatureUnit"])
             {
-                case "kelvin":
-                    UnitType = "standard";
-                    TemperatureUnit = "K";
-                    break;
                 case "celsius":
                     UnitType = "metric";
                     TemperatureUnit = "°C";
+                    WindSpeedUnit = "m/s";
                     break;
                 case "fahrenheit":
                     UnitType = "imperial";
                     TemperatureUnit = "°F";
+                    WindSpeedUnit = "mph";
+                    break;
+                case "kelvin":
+                    UnitType = "standard";
+                    TemperatureUnit = "K";
+                    WindSpeedUnit = "m/s";
                     break;
             }
             Console.WriteLine(UnitType);
@@ -132,6 +138,9 @@ namespace weatherapplication.Pages
         [JsonPropertyName("wind")]
         public MunicipalityWindData wind { get; set; }
 
+        [JsonPropertyName("clouds")]
+        public MunicipalityCloudData clouds { get; set; }
+
         [JsonPropertyName("name")]
         public string name { get; set; }
     }
@@ -180,6 +189,12 @@ namespace weatherapplication.Pages
         public int deg { get; set; }
         public float gust { get; set; }
 
+    }
+
+    public class MunicipalityCloudData
+    {
+        [JsonPropertyName("all")]
+        public int all { get; set; }
     }
 
 }
