@@ -29,39 +29,8 @@ namespace weatherapplication.Pages
 
         public async void OnPost()
         {
-            // Location = Request.Form["location"];
-            // if (string.IsNullOrEmpty(Request.Form["latitude"]) || string.IsNullOrEmpty(Request.Form["longitude"])) {
-            //     Console.WriteLine("Not here!");
-            // } else {
-            //     //Latitude = float.Parse(Request.Form["latitude"]);
-            //     //Longitude = float.Parse(Request.Form["longitude"]);
-            //     Latitude = Request.Form["latitude"];
-            //     Longitude = Request.Form["longitude"];
-            //     Console.WriteLine(Latitude);
-            //     Console.WriteLine(Longitude);
-            //     Console.WriteLine("updated!");
-                
-            //     // string request_str = $"https://api.open-meteo.com/v1/forecast?latitude={Latitude}";
-            //     var response = await GetWeather();
-            //     Console.WriteLine(response);
-            //     Console.WriteLine("after response");
-            // }
-
-            // return RedirectToPage("Index");
+            Console.WriteLine("Made Call!");
         }
-
-        // public async Task<JsonResult> GetWeather() {
-        //     string apiResponse = "";
-        //     Console.WriteLine($"https://api.open-meteo.com/v1/forecast?latitude={Latitude}&longitude={Longitude}&hourly=temperature_2m");
-        //     using ( var httpClient = new HttpClient()) {
-        //         using (HttpResponseMessage response = await httpClient.GetAsync($"https://api.open-meteo.com/v1/forecast?latitude={Latitude}&longitude={Longitude}&hourly=temperature_2m")) {
-        //             apiResponse = await response.Content.ReadAsStringAsync();
-        //             Console.WriteLine(apiResponse);
-        //         }
-        //     }
-
-        //     return new JsonResult(apiResponse);
-        // }
     }
 }
 

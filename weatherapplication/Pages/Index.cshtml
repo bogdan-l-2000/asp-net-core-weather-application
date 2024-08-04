@@ -15,15 +15,18 @@
     <div class="weather-display-container">
         <div class="weather-info">
             <ul class="weather-display-default-cities">
-                <li class="weather-display-default-city-item">
-                    <h2 class="city-name"></h2>
-                    <div class="weather-display-default-city-weather-info">
-                        <span class="default-city-description"></span>
-                        <span class="default-city-temp"></span>
-                        <span class="default-city-cloud"></span>
-                        <span class="default-city-wind-speed"></span>
-                    </div>
-                </li>
+                @for (var i=0; i < @Model.displayLocations.Count; i++)
+                        {
+                            <li class="weather-display-default-city-item">
+                            <h2 class="city-name">@Model.displayLocations[i]</h2>
+                            <div class="weather-display-default-city-weather-info">
+                                <span class="default-city-description"></span>
+                                <span class="default-city-temp"></span>
+                                <span class="default-city-cloud"></span>
+                                <span class="default-city-wind-speed"></span>
+                            </div>
+                            </li>
+                        }
             </ul>
         </div>
     </div>
