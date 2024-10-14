@@ -24,6 +24,7 @@ namespace weatherapplication
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
+            services.AddCors();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -40,10 +41,30 @@ namespace weatherapplication
                 app.UseHsts();
             }
 
+
+            // var AppAllowSpecificOrigins = "_AppAllowSpecificOrigins";
+            // services.AddCors( options => {
+            //     options.AddPolicy(name:AppAllowSpecificOrigins, 
+            //         builder =>
+            //     {
+            //         builder.WithOrigins("http://localhost")
+            //         .AllowAnyMethod()
+            //         .AllowAnyHeader()
+            //         .SetIsOriginAllowedToAllowWildcardSubdomains();
+            //     });
+            // });
+
+
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
             app.UseRouting();
+            // app.UseCors(AppAllowSpecificOrigins);
+            // app.UseCors(options => options.WithOrigins(
+            //     "http://localhost:3000").AllowAnyMethod().AllowAnyHeader());
+
+            app.UseCors(options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 
             app.UseAuthorization();
 

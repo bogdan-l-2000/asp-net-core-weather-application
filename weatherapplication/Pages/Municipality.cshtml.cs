@@ -50,7 +50,6 @@ namespace weatherapplication.Pages
             //var jsonData = jsonReader.ReadToEnd();
             string jsonData = System.IO.File.ReadAllText("appSecrets.json");
             ApiInfo WeatherAPIInfo = JsonSerializer.Deserialize<ApiInfo>(jsonData);
-            Console.WriteLine(WeatherAPIInfo.ConnectionStrings.OpenWeatherAPI);
             WeatherAPIKey = WeatherAPIInfo.ConnectionStrings.OpenWeatherAPI;
         }
 
