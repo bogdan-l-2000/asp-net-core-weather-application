@@ -17,13 +17,21 @@
             <ul class="weather-display-default-cities">
                 @for (var i=0; i < @Model.displayLocations.Count; i++)
                         {
-                            <li class="weather-display-default-city-item">
+                            <li class="weather-display-default-city-item" id=@Model.apiCityValues[i]>
                             <h2 class="city-name">@Model.displayLocations[i]</h2>
                             <div class="weather-display-default-city-weather-info">
-                                <span class="default-city-description"></span>
-                                <span class="default-city-temp"></span>
-                                <span class="default-city-cloud"></span>
-                                <span class="default-city-wind-speed"></span>
+                                <div>Description:
+                                    <span class="default-city-description"></span>
+                                </div>
+                                <div>Temperature:
+                                    <span class="default-city-temp"></span>
+                                </div>
+                                <div>Cloud Cover:
+                                    <span class="default-city-cloud"></span>
+                                </div>
+                                <div>Wind Speed:
+                                    <span class="default-city-wind-speed"></span>
+                                </div>
                             </div>
                             </li>
                         }

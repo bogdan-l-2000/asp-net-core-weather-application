@@ -14,7 +14,10 @@ namespace weatherapplication.Pages
 {
     public class IndexModel : PageModel
     {
+        [BindProperty]
         public List<string> displayLocations { get; set; }
+        
+        [BindProperty]
         public List<string> apiCityValues { get; set; }
         public List<string> apiCountryValues { get; set; }
 
@@ -66,6 +69,7 @@ namespace weatherapplication.Pages
                         Console.WriteLine(apiResponse);
                     }
                 }
+                responses += '"' + apiCityValues[i] + '"' + ":";
                 responses += apiResponse;
                 if (i < displayLocations.Count - 1) {
                     responses += ",";
