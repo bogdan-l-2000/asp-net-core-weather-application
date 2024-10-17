@@ -5,5 +5,7 @@ Enabled: Weather retrieval given coordinates or municipality.
 
 Enabled: Display of "default" weather locations on homepage. 
 
+
 In progress: Frontend. 
+
 In progress: Homepage.
