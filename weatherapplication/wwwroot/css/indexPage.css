@@ -3,6 +3,18 @@ ul {
 }
 
 
+ul.weather-display-default-cities {
+    display: flex;
+}
+
+li.weather-display-default-city-item {
+    margin: 20px;
+    padding: 5px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    border-bottom: 2px solid #D2CFE2;
+}
+
+
 #weather-request-form-coordinate {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
     border-bottom: 2px solid #D2CFE2;
@@ -10,12 +22,6 @@ ul {
     padding: 5px;
 }
 
-#weather-request-form-city {
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-    border-bottom: 2px solid #D2CFE2;
-    margin: 20px;
-    padding: 5px;
-}
 
 input, select {
     border: 1px solid #D2CFE2;
