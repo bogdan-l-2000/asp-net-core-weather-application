@@ -14,6 +14,11 @@ li.weather-display-default-city-item {
     border-bottom: 2px solid #D2CFE2;
 }
 
+.default-city-temp {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
 
 #weather-request-form-coordinate {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
